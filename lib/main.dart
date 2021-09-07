@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:sign/View/Screens/Cart.dart';
+import 'package:sign/View/Screens/FavScreen.dart';
+import 'package:sign/View/Screens/ForgetPassword.dart';
+import 'package:sign/View/Screens/HomeScreen.dart';
+import 'package:sign/View/Screens/HomeView.dart';
+import 'package:sign/View/Screens/OnBoarding.dart';
+import 'package:sign/View/Screens/Settings.dart';
+import 'package:sign/View/Screens/SignInScreen.dart';
+import 'package:sign/View/Screens/SignUp.dart';
+import 'package:sign/View/Screens/SplashScreen.dart';
+void main()
+{
+  runApp(Shopify());
+}
+class Shopify extends StatefulWidget {
+  const Shopify({Key? key}) : super(key: key);
+
+  @override
+  _ShopifyState createState() => _ShopifyState();
+}
+
+class _ShopifyState extends State<Shopify> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SplashScreen(),
+      routes: {
+        OnBoarding.id:(context)=>OnBoarding(),
+        SignInScreen.id:(context)=>SignInScreen(),
+        ForgetPassword.id:(context)=>ForgetPassword(),
+        SignUp.id:(context)=>SignUp(),
+        HomeScreen.id:(context)=>HomeScreen(),
+        HomeView.id:(context)=>HomeView(),
+        FavScreen.id:(context)=>FavScreen(),
+        Cart.id:(context)=>Cart(),
+        Settings.id:(context)=>Settings(),
+      },
+    );
+  }
+}
