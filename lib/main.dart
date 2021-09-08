@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/View/Screens/Cart.dart';
 import 'package:sign/View/Screens/FavScreen.dart';
@@ -8,7 +9,6 @@ import 'package:sign/View/Screens/OnBoarding.dart';
 import 'package:sign/View/Screens/Settings.dart';
 import 'package:sign/View/Screens/SignInScreen.dart';
 import 'package:sign/View/Screens/SignUp.dart';
-import 'package:sign/View/Screens/SplashScreen.dart';
 void main()
 {
   runApp(Shopify());
@@ -24,7 +24,14 @@ class _ShopifyState extends State<Shopify> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      home: AnimatedSplashScreen(
+        splash: 'images/Shopify-Symbol.png',
+        nextScreen: OnBoarding(),
+        splashIconSize: 150,
+        duration: 1500,
+        curve: Curves.decelerate,
+        splashTransition: SplashTransition.sizeTransition,
+      ),
       routes: {
         OnBoarding.id:(context)=>OnBoarding(),
         SignInScreen.id:(context)=>SignInScreen(),
