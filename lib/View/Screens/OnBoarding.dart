@@ -41,20 +41,20 @@ class _OnBoardingState extends State<OnBoarding> {
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  height: 45,
-                  decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius: BorderRadius.circular(30)
+                child: InkWell(
+                  onTap: ()
+                  {
+                    Navigator.popAndPushNamed(context, SignInScreen.id);
+                  },
+                  child: Container(
+                    height: 45,
+                    decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    child: Center(child: Text('Get Started',style:
+                    TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),)),
                   ),
-                  child: Center(child: InkWell(
-                    onTap: ()
-                    {
-                      Navigator.popAndPushNamed(context, SignInScreen.id);
-                    },
-                    child: Text('Get Started',style:
-                    TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),),
-                  )),
                 ),
               ),
             ],

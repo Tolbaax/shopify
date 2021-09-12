@@ -4,7 +4,6 @@ import 'package:sign/View/Screens/ForgetPassword.dart';
 import 'package:sign/View/Screens/HomeScreen.dart';
 import 'package:sign/View/Screens/SignUp.dart';
 import 'package:sign/View/Widgets/CustomTextFormFiled.dart';
-
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
   static String id = 'SignInScreen';
@@ -33,37 +32,51 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Column(
                   children: [
                     CustomTextFormFiled(
-                      name: 'Username', hint: 'Enter Your Username', secure: false,
-                      icon: FontAwesomeIcons.user,eyeView: false,),
+                      name: 'Username',
+                      hint: 'Enter Your Username',
+                      secure: false,
+                      icon: FontAwesomeIcons.user,
+                      eyeView: false,
+                    ),
                     CustomTextFormFiled(
-                      name: 'Password',hint: 'Enter Your Password', secure: true,
-                      icon: Icons.lock,eyeView: true,),
+                      name: 'Password',
+                      hint: 'Enter Your Password',
+                      secure: true,
+                      icon: Icons.lock,
+                      eyeView: true,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
-                      child: Container(
-                        height: 55,
-                        width: 280,
-                        decoration: BoxDecoration(
-                            color: Colors.deepPurpleAccent,
-                            borderRadius: BorderRadius.circular(28)
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.popAndPushNamed(context, HomeScreen.id);
+                        },
+                        child: Container(
+                          height: 55,
+                          width: 280,
+                          decoration: BoxDecoration(
+                              color: Colors.deepPurpleAccent,
+                              borderRadius: BorderRadius.circular(28)),
+                          child: Center(
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              )),
                         ),
-                        child: Center(child: InkWell(
-                          onTap: ()
-                          {
-                            Navigator.popAndPushNamed(context, HomeScreen.id);
-                          },
-                          child: Text('Login',style:
-                          TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w600),),
-                        )),
                       ),
                     ),
                     InkWell(
-                      onTap: ()
-                      {
+                      onTap: () {
                         Navigator.pushNamed(context, ForgetPassword.id);
                       },
-                      child: Text('Forget Password ?',style:
-                      TextStyle(fontWeight: FontWeight.w600,fontSize: 19),),
+                      child: Text(
+                        'Forget Password ?',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 19),
+                      ),
                     ),
                     SizedBox(
                       height: 15,
@@ -72,15 +85,24 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Don't have an account ?",style:
-                          TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w600,fontSize: 18),),
+                          Text(
+                            "Don't have an account ?",
+                            style: TextStyle(
+                                color: Colors.grey[800],
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18),
+                          ),
                           InkWell(
-                            onTap: ()
-                            {
+                            onTap: () {
                               Navigator.pushNamed(context, SignUp.id);
                             },
-                            child: Text("Sign Up",style:
-                            TextStyle(color: Colors.grey[600],fontWeight: FontWeight.w600,fontSize: 18),),
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18),
+                            ),
                           ),
                         ],
                       ),
@@ -95,4 +117,3 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 }
-

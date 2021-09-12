@@ -18,7 +18,6 @@ class SignUp extends StatelessWidget {
                 Text('Sign Up',style:
                 TextStyle(fontSize: 40,fontWeight: FontWeight.w600,color: Colors.deepPurpleAccent),),
                 SizedBox(
-                  height: 30,
                 ),
                 Form(child: Padding(
                   padding: const EdgeInsets.all(20.0),

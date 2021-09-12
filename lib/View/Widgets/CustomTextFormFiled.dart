@@ -10,7 +10,6 @@ class CustomTextFormFiled extends StatefulWidget {
   @override
   _CustomTextFormFiledState createState() => _CustomTextFormFiledState();
 }
-
 class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
   @override
   Widget build(BuildContext context) {

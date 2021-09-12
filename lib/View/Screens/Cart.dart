@@ -12,7 +12,7 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(child: Text('Cart',style:
-      GoogleFonts.acme(fontSize: 40,color: Colors.deepPurple,fontWeight: FontWeight.w600),)),
+      GoogleFonts.acme(fontSize: 40,color: Colors.green,fontWeight: FontWeight.w600),)),
     );
   }
 }
