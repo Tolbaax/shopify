@@ -85,8 +85,15 @@ class _HomeViewState extends State<HomeView> {
               Container(
                 height: 300,width: double.infinity,
                 child: Swiper(
+                  pagination: new SwiperPagination(
+                    alignment: Alignment.bottomCenter,
+                    builder: new DotSwiperPaginationBuilder(
+                        color: Colors.red, activeColor: Color(0xff38547C)),
+                  ),
+                  control: new SwiperControl(
+                    color: Color(0xff38547C),
+                  ),
                   autoplay: true,
-                  pagination: SwiperPagination(builder: SwiperPagination.dots),
                   itemCount: imageList.length,
                   itemBuilder: (context,index)
                   {
