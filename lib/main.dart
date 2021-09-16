@@ -1,8 +1,10 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:sign/Provider/ThemeProv.dart';
+import 'package:sign/Model/ThemeProv.dart';
 import 'package:sign/View/Screens/Cart.dart';
+import 'package:sign/View/Screens/CategoryScreen.dart';
 import 'package:sign/View/Screens/FavScreen.dart';
 import 'package:sign/View/Screens/ForgetPassword.dart';
 import 'package:sign/View/Screens/HomeScreen.dart';
@@ -28,31 +30,34 @@ class Shopify extends StatefulWidget {
 class _ShopifyState extends State<Shopify> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          brightness: Provider.of<ThemeProv>(context).isDark
-              ? Brightness.dark
-              : Brightness.light),
-      debugShowCheckedModeBanner: false,
-      home: AnimatedSplashScreen(
-        splash: 'images/Shopify-Symbol.png',
-        nextScreen: OnBoarding(),
-        splashIconSize: 150,
-        duration: 1500,
-        curve: Curves.decelerate,
-        splashTransition: SplashTransition.sizeTransition,
+    return ScreenUtilInit(
+      builder:()=> MaterialApp(
+        theme: ThemeData(
+            brightness: Provider.of<ThemeProv>(context).isDark
+                ? Brightness.dark
+                : Brightness.light),
+        debugShowCheckedModeBanner: false,
+        home: AnimatedSplashScreen(
+          splash: 'images/Shopify-Symbol.png',
+          nextScreen: OnBoarding(),
+          splashIconSize: 150,
+          duration: 1500,
+          curve: Curves.decelerate,
+          splashTransition: SplashTransition.sizeTransition,
+        ),
+        routes: {
+          OnBoarding.id: (context) => OnBoarding(),
+          SignInScreen.id: (context) => SignInScreen(),
+          ForgetPassword.id: (context) => ForgetPassword(),
+          SignUp.id: (context) => SignUp(),
+          HomeScreen.id: (context) => HomeScreen(),
+          HomeView.id: (context) => HomeView(),
+          FavScreen.id: (context) => FavScreen(),
+          Cart.id: (context) => Cart(),
+          Settings.id: (context) => Settings(),
+          CategoryScreen.id:(context)=>CategoryScreen(),
+        },
       ),
-      routes: {
-        OnBoarding.id: (context) => OnBoarding(),
-        SignInScreen.id: (context) => SignInScreen(),
-        ForgetPassword.id: (context) => ForgetPassword(),
-        SignUp.id: (context) => SignUp(),
-        HomeScreen.id: (context) => HomeScreen(),
-        HomeView.id: (context) => HomeView(),
-        FavScreen.id: (context) => FavScreen(),
-        Cart.id: (context) => Cart(),
-        Settings.id: (context) => Settings(),
-      },
     );
   }
 }

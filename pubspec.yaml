@@ -36,6 +36,7 @@ dependencies:
   provider:
   dependencies:
   flutter_swiper_null_safety: ^1.0.2
+  flutter_screenutil: ^5.0.0+2
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -13,53 +13,57 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(35.0),
-          child: Column(
-            children: [
-              Icon(FontAwesomeIcons.shopify,color: Colors.deepPurpleAccent,size: 130,),
-              SizedBox(
-                height: 25,
-              ),
-              Text('Shopify',style:
-              GoogleFonts.acme(fontSize: 60,color: Colors.deepPurpleAccent,fontWeight: FontWeight.w600),),
-
-              SizedBox(height: 120,),
-
-              Text('Start selling with Shopify',style:
-              TextStyle(color: Colors.black,fontSize:27,fontWeight: FontWeight.w600),),
-
-              SizedBox(height: 20,),
-
-              Text('Reach customers with a platform trusted',style:
-              TextStyle(color: Colors.grey[600],fontWeight: FontWeight.w600,fontSize: 16),),
-              Text('by over a million businesses worldwide',style:
-              TextStyle(color: Colors.grey[600],fontWeight: FontWeight.w600,fontSize: 16),),
-              SizedBox(
-                height: 35,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: InkWell(
-                  onTap: ()
-                  {
-                    Navigator.popAndPushNamed(context, SignInScreen.id);
-                  },
-                  child: Container(
-                    height: 45,
-                    decoration: BoxDecoration(
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(30)
-                    ),
-                    child: Center(child: Text('Get Started',style:
-                    TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),)),
+      body: ListView(
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(35.0),
+              child: Column(
+                children: [
+                  Icon(FontAwesomeIcons.shopify,color: Colors.deepPurpleAccent,size: 130,),
+                  SizedBox(
+                    height: 25,
                   ),
-                ),
+                  Text('Shopify',style:
+                  GoogleFonts.acme(fontSize: 60,color: Colors.deepPurpleAccent,fontWeight: FontWeight.w600),),
+
+                  SizedBox(height: 120,),
+
+                  Text('Start selling with Shopify',style:
+                  TextStyle(color: Colors.black,fontSize:27,fontWeight: FontWeight.w600),),
+
+                  SizedBox(height: 20,),
+
+                  Text('Reach customers with a platform trusted',style:
+                  TextStyle(color: Colors.grey[600],fontWeight: FontWeight.w600,fontSize: 16),),
+                  Text('by over a million businesses worldwide',style:
+                  TextStyle(color: Colors.grey[600],fontWeight: FontWeight.w600,fontSize: 16),),
+                  SizedBox(
+                    height: 35,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: InkWell(
+                      onTap: ()
+                      {
+                        Navigator.popAndPushNamed(context, SignInScreen.id);
+                      },
+                      child: Container(
+                        height: 45,
+                        decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                            borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: Center(child: Text('Get Started',style:
+                        TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),)),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

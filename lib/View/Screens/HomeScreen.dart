@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:sign/Provider/ThemeProv.dart';
+import 'package:sign/Model/ThemeProv.dart';
 import 'package:sign/View/Screens/Cart.dart';
 import 'package:sign/View/Screens/FavScreen.dart';
 import 'package:sign/View/Screens/HomeView.dart';
@@ -17,22 +17,18 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
   List view = [
-    HomeView(),
-    Cart(),
-    FavScreen(),
-    Settings(),
+    HomeView(), Cart(), FavScreen(), Settings(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: key,
       drawer: Drawer(
-        child: Center(
-            child: InkWell(
-                onTap: () {
-                  Provider.of<ThemeProv>(context,listen: false).changeTheme();
-                },
-                child: Icon(Icons.brightness_medium,size: 40,))),
+        child: InkWell(
+            onTap: () {
+              Provider.of<ThemeProv>(context,listen: false).changeTheme();
+            },
+            child: Icon(Icons.brightness_medium,size: 40,)),
       ),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: currentIndex,
