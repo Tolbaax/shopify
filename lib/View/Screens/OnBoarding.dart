@@ -55,7 +55,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             borderRadius: BorderRadius.circular(30)
                         ),
                         child: Center(child: Text('Get Started',style:
-                        GoogleFonts.acme(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),)),
+                        TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),)),
                       ),
                     ),
                   ),

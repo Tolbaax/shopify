@@ -13,13 +13,13 @@ class HomeView extends StatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 List<CategoryModel>category=[
-  CategoryModel(categoryNames: 'Shirts',categoryImageUrl:'images/shirt.jpg',),
-  CategoryModel(categoryNames: 'Watches',categoryImageUrl:'images/clock.jpg',),
-  CategoryModel(categoryNames: 'Pantaloons',categoryImageUrl:'images/pantalon.jpg',),
-  CategoryModel(categoryNames: 'Shoes',categoryImageUrl:'images/photo_2021-03-29_16-20-45.jpg',),
-  CategoryModel(categoryNames: 'Caps',categoryImageUrl:'images/photo_2021-03-29_16-20-44 (2).jpg',),
-  CategoryModel(categoryNames: 'Jackets',categoryImageUrl:'images/photo_2021-03-29_16-20-44 (3).jpg',),
-  CategoryModel(categoryNames: 'Bags',categoryImageUrl:'images/photo_2021-03-29_16-20-44 (4).jpg',),
+  CategoryModel(categoryNames: 'Shirts',categoryImageUrl:'images/White_T-Shirt_Mockup.jpg',),
+  CategoryModel(categoryNames: 'Watches',categoryImageUrl:'images/whach3.jpg',),
+  CategoryModel(categoryNames: 'Pantalon',categoryImageUrl:'images/pantalon.webp',),
+  CategoryModel(categoryNames: 'Shoes',categoryImageUrl:'images/shoes.jpg',),
+  CategoryModel(categoryNames: 'Caps',categoryImageUrl:'images/caps.jpg',),
+  CategoryModel(categoryNames: 'Jackets',categoryImageUrl:'images/jacket.jpg',),
+  CategoryModel(categoryNames: 'Bags',categoryImageUrl:'images/bags.jpg',),
 ];
 List<String>imageList=['images/06.jpg', 'images/07.jpg', 'images/08.jpg', 'images/09.jpg',];
 List<Product>products=[
