@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         baseColor: Colors.black,
                         highlightColor:Colors.transparent,
                         child: Text('Hello',style:
-                        GoogleFonts.acme(fontSize: 23,fontWeight: FontWeight.w500),),
+                        GoogleFonts.share(fontSize: 20,fontWeight: FontWeight.w500),),
                       ),
                     )),
                 Align(
@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 6),
                       child: Text('Mohamed Tolba',style:
-                      GoogleFonts.delius(fontSize: 25,fontWeight: FontWeight.w600),),
+                      GoogleFonts.share(fontSize: 20,fontWeight: FontWeight.w600),),
                     )),
                 SizedBox(
                   height: 20,
@@ -68,9 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 5,right: 20),
-                        child: Icon(FontAwesomeIcons.home,size:25,color: Colors.teal,),
+                        child: Icon(FontAwesomeIcons.home,size:22,color: Colors.teal,),
                       ),
-                      Text('Home',style: GoogleFonts.share(fontSize: 25,fontWeight: FontWeight.bold),),
+                      Text('Home',style: GoogleFonts.share(fontSize: 22,fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),
@@ -80,9 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 5,right: 20),
-                        child: Icon(Icons.add_shopping_cart_outlined,size:25,color: Colors.teal,),
+                        child: Icon(Icons.add_shopping_cart_outlined,size:22,color: Colors.teal,),
                       ),
-                      Text('My Orders',style: GoogleFonts.share(fontSize: 25,fontWeight: FontWeight.bold),),
+                      Text('My Orders',style: GoogleFonts.share(fontSize: 22,fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),
@@ -92,9 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 5,right: 20),
-                        child: Icon(Icons.call_sharp,size:25,color: Colors.teal),
+                        child: Icon(Icons.call_sharp,size:22,color: Colors.teal),
                       ),
-                      Text('About Us',style: GoogleFonts.share(fontSize: 25,fontWeight: FontWeight.bold),),
+                      Text('About Us',style: GoogleFonts.share(fontSize: 22,fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),
@@ -104,9 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 5,right: 20),
-                        child: Icon(Icons.feedback,size:25,color: Colors.teal,),
+                        child: Icon(Icons.feedback,size:22,color: Colors.teal,),
                       ),
-                      Text('Send Feedback',style: GoogleFonts.share(fontSize: 25,fontWeight: FontWeight.bold),),
+                      Text('Send Feedback',style: GoogleFonts.share(fontSize: 22,fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),
@@ -116,9 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 5,right: 20),
-                        child: Icon(Icons.share,size:25,color: Colors.teal,),
+                        child: Icon(Icons.share,size:22,color: Colors.teal,),
                       ),
-                      Text('Share This App',style: GoogleFonts.share(fontSize: 25,fontWeight: FontWeight.bold),),
+                      Text('Share This App',style: GoogleFonts.share(fontSize: 22,fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 8,bottom: 10),
-                      child: Text('Dark Mode',style: GoogleFonts.share(fontSize: 25,fontWeight: FontWeight.bold),),
+                      child: Text('Dark Mode',style: GoogleFonts.share(fontSize: 22,fontWeight: FontWeight.bold),),
                     ),
                     Spacer(),
                     Padding(
@@ -137,7 +137,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           {
                             Provider.of<ThemeProv>(context,listen: false).changeTheme();
                           },
-                          child: Icon(Icons.brightness_medium,size:27,color: Colors.teal,)),
+                          child: Shimmer.fromColors(
+                              baseColor: Colors.teal,
+                              highlightColor: Colors.transparent,
+                              child: Icon(Icons.brightness_medium,size:25,color: Colors.teal,))),
                     ),
                   ],
                 )

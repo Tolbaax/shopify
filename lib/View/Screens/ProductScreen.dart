@@ -33,7 +33,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   child: Row(
                     children: [
                       Text(widget.product!.name!,style:
-                      GoogleFonts.macondo(fontSize: 40,fontWeight: FontWeight.w600),),
+                      GoogleFonts.share(fontSize: 35,fontWeight: FontWeight.w600),),
                       Spacer(),
                       InkWell(
                           onTap: ()
@@ -59,18 +59,18 @@ class _ProductScreenState extends State<ProductScreen> {
                       Icon(Icons.add_circle,size: 35,color: Colors.teal,),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: Text('0',style: TextStyle(fontSize: 25),),
+                        child: Text('0',style: TextStyle(fontSize: 20),),
                       ),
                       Icon(Icons.remove_circle,size: 35,color: Colors.teal,),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 12,top: 20,right: 5,),
+                  padding: const EdgeInsets.only(left: 12,top: 45,right: 5,),
                   child: Row(
                     children: [
                       Text(widget.product!.price!,style:
-                      GoogleFonts.aladin(fontSize: 25,color: Colors.teal),),
+                      GoogleFonts.share(fontSize: 25,color: Colors.teal,fontWeight: FontWeight.bold),),
                       Spacer(),
                       InkWell(
                         onTap: (){
@@ -84,11 +84,11 @@ class _ProductScreenState extends State<ProductScreen> {
                         child: Container(
                             height: 36.h,width:130.w ,
                             decoration: BoxDecoration(
-                                color: Colors.blueAccent,
+                                color: Colors.deepPurpleAccent,
                                 borderRadius: BorderRadius.circular(25)
                             ),
                             child: Center(child: Text('Add To Card',style:
-                            GoogleFonts.delius(fontSize: 20,fontWeight: FontWeight.w800),))),
+                            GoogleFonts.delius(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w800),))),
                       ),
                     ],
                   ),

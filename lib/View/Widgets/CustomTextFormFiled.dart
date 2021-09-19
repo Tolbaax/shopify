@@ -15,13 +15,13 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(15.0),
       child: Column(
         children: [
           Align(
             alignment: Alignment.topLeft,
             child: Text(widget.name!,style:
-            GoogleFonts.aladin(fontSize: 30,fontWeight: FontWeight.w200,color: Colors.black),),
+            GoogleFonts.share(fontSize: 28,fontWeight: FontWeight.w600,color: Colors.black),),
           ),
 
           TextFormField(

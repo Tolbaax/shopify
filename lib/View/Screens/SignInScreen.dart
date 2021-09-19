@@ -42,8 +42,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: Column(
                         children: [
                           CustomTextFormFiled(
-                            name: 'Username',
-                            hint: 'Enter Your Username',
+                            name: 'Email',
+                            hint: 'Enter Your Email',
                             secure: false,
                             icon: FontAwesomeIcons.user,
                             eyeView: false,
@@ -62,20 +62,20 @@ class _SignInScreenState extends State<SignInScreen> {
                                 Navigator.popAndPushNamed(context, HomeScreen.id);
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.only(top: 15,bottom: 3,),
                                 child: Container(
-                                  height: 50.h,
-                                  width: 280.w,
+                                  height: 33.h,
+                                  width: 200.w,
                                   decoration: BoxDecoration(
                                       color: Colors.deepPurpleAccent,
-                                      borderRadius: BorderRadius.circular(28)),
+                                      borderRadius: BorderRadius.circular(30)),
                                   child: Center(
                                       child: Text(
                                         'Login',
-                                        style: GoogleFonts.aladin(
+                                        style: GoogleFonts.delius(
                                             color: Colors.white,
-                                            fontSize: 40,
-                                            fontWeight: FontWeight.w800),
+                                            fontSize: 25.h,
+                                            fontWeight: FontWeight.w600),
                                       )),
                                 ),
                               ),
@@ -88,7 +88,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             child: Text(
                               'Forget Password ?',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 19),
+                                  fontWeight: FontWeight.w600, fontSize: 16),
                             ),
                           ),
                           SizedBox(
@@ -103,7 +103,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   style: TextStyle(
                                       color: Colors.grey[800],
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 18),
+                                      fontSize: 16),
                                 ),
                                 InkWell(
                                   onTap: () {

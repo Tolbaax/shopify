@@ -87,8 +87,8 @@ class _HomeViewState extends State<HomeView> {
                                       height: 3.h,
                                     ),
                                     Text(
-                                      category[index].categoryNames!, style: GoogleFonts.aladin(
-                                          fontSize: 18, fontWeight: FontWeight.w600),
+                                      category[index].categoryNames!, style: GoogleFonts.share(
+                                          fontSize: 20, fontWeight: FontWeight.w600),
                                     ),
                                   ],
                                 ),
@@ -147,7 +147,7 @@ class _HomeViewState extends State<HomeView> {
                         builder: new DotSwiperPaginationBuilder(
                             color: Colors.white, activeColor: Color(0xffb927ff)),
                       ),
-                      control: new SwiperControl(color: Color(0xffa31efc),
+                      control: new SwiperControl(color: Colors.teal,
                       ),
                       autoplay: true,
                       itemCount: imageList.length,
