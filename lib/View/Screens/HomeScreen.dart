@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:sign/Model/ThemeProv.dart';
 import 'package:sign/View/Screens/Cart.dart';
 import 'package:sign/View/Screens/FavScreen.dart';
 import 'package:sign/View/Screens/HomeView.dart';
@@ -38,9 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 6),
+                      padding: const EdgeInsets.only(left: 6,bottom: 3),
                       child: Text('Hello',style:
-                      GoogleFonts.acme(fontSize: 23,fontWeight: FontWeight.w600),),
+                      GoogleFonts.acme(fontSize: 23,fontWeight: FontWeight.w500),),
                     )),
                 Align(
                     alignment: Alignment.topLeft,
@@ -49,6 +52,73 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text('Mohamed Tolba',style:
                       GoogleFonts.acme(fontSize: 25,fontWeight: FontWeight.w600),),
                     )),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,right: 20),
+                      child: Icon(FontAwesomeIcons.home,size:25,color: Colors.teal,),
+                    ),
+                    Text('Home',style: GoogleFonts.dekko(fontSize: 25,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,right: 20),
+                      child: Icon(Icons.add_shopping_cart_outlined,size:25,color: Colors.teal,),
+                    ),
+                    Text('My Orders',style: GoogleFonts.dekko(fontSize: 25,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,right: 20),
+                      child: Icon(Icons.call_sharp,size:25,color: Colors.teal),
+                    ),
+                    Text('About Us',style: GoogleFonts.dekko(fontSize: 25,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,right: 20),
+                      child: Icon(Icons.feedback,size:25,color: Colors.teal,),
+                    ),
+                    Text('Send Feedback',style: GoogleFonts.dekko(fontSize: 25,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,right: 20),
+                      child: Icon(Icons.share,size:25,color: Colors.teal,),
+                    ),
+                    Text('Share This App',style: GoogleFonts.dekko(fontSize: 25,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Spacer(),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,bottom: 10),
+                      child: Text('Dark Mode',style: GoogleFonts.dekko(fontSize: 25,fontWeight: FontWeight.bold),),
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10,right: 8),
+                      child: InkWell(
+                          onTap: ()
+                          {
+                            Provider.of<ThemeProv>(context,listen: false).changeTheme();
+                          },
+                          child: Icon(Icons.brightness_medium,size:27,color: Colors.teal,)),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

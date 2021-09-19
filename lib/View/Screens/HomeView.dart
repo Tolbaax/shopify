@@ -21,14 +21,15 @@ List<CategoryModel>category=[
   CategoryModel(categoryNames: 'Jackets',categoryImageUrl:'images/jacket.jpg',),
   CategoryModel(categoryNames: 'Bags',categoryImageUrl:'images/bags.jpg',),
 ];
-List<String>imageList=['images/06.jpg', 'images/07.jpg', 'images/08.jpg', 'images/09.jpg',];
+List<String>imageList=['images/fashon.jpg', 'images/07.jpg', 'images/fashon1.jpg', 'images/fashon2.jpg',];
 List<Product>products=[
-  Product(name: 'Jordan',style: 'Soft Cotton',price: '170 LE'),
-  Product(name: 'Jordan',style: 'Soft Cotton',price: '170 LE'),
-  Product(name: 'Jordan',style: 'Soft Cotton',price: '170 LE'),
-  Product(name: 'Jordan',style: 'Soft Cotton',price: '170 LE'),
-  Product(name: 'Jordan',style: 'Soft Cotton',price: '170 LE'),
-  Product(name: 'Jordan',style: 'Soft Cotton',price: '170 LE'),
+  Product(name: 'Oxford',style: 'casual',price: '240 LE',imagePath: 'images/shirt2.jpeg'),
+  Product(name: 'Classic',style: 'button-down',price: '170 LE',imagePath: 'images/shirt1.jpg'),
+  Product(name: 'Chambray',style: 'Cotton',price: '450 LE',imagePath: 'images/shirts3.jpg'),
+  Product(name: 'Overshirt',style: 'Soft Cotton',price: '300 LE',imagePath: 'images/White_T-Shirt_Mockup.jpg'),
+  Product(name: 'Bags',style: 'black bag',price: '170 LE',imagePath: 'images/bags.jpg'),
+  Product(name: 'watch',style: 'Luxury',price: '170 LE',imagePath: 'images/whach3.jpg'),
+  Product(name: 'Shoes',style: 'Sneakers',price: '220 LE',imagePath: 'images/shoes.jpg'),
 ];
 class _HomeViewState extends State<HomeView> {
   @override
@@ -77,7 +78,7 @@ class _HomeViewState extends State<HomeView> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: CircleAvatar(
-                                        radius: 30.r,
+                                        radius: 35.r,
                                         backgroundImage: AssetImage(
                                             category[index].categoryImageUrl!),
                                       ),
@@ -110,7 +111,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                       Container(
-                        height: 255.h,
+                        height: 340.h,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
@@ -139,7 +140,7 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   Container(
-                    height: 300.h,
+                    height: 250.h,color: Colors.red,
                     child: Swiper(
                       pagination: new SwiperPagination(
                         alignment: Alignment.bottomCenter,
@@ -152,12 +153,16 @@ class _HomeViewState extends State<HomeView> {
                       itemCount: imageList.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          child: Image(image: AssetImage(imageList[index]),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(imageList[index])
+                            ),
                           ),
                         );
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
