@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sign/View/Screens/ForgetPassword.dart';
 import 'package:sign/View/Screens/HomeScreen.dart';
 import 'package:sign/View/Screens/SignUp.dart';
 import 'package:sign/View/Widgets/CustomTextFormFiled.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
   static String id = 'SignInScreen';
@@ -16,102 +18,111 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(28.0),
-              child: Icon(
-                FontAwesomeIcons.shopify,
-                size: 100,
-                color: Colors.deepPurpleAccent,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Form(
-                child: Column(
-                  children: [
-                    CustomTextFormFiled(
-                      name: 'Username',
-                      hint: 'Enter Your Username',
-                      secure: false,
-                      icon: FontAwesomeIcons.user,
-                      eyeView: false,
+        child: SafeArea(
+          child: ListView(
+            children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10,top: 20),
+                    child: Icon(
+                      FontAwesomeIcons.shopify,
+                      size: 100,
+                      color: Colors.deepPurpleAccent,
                     ),
-                    CustomTextFormFiled(
-                      name: 'Password',
-                      hint: 'Enter Your Password',
-                      secure: true,
-                      icon: Icons.lock,
-                      eyeView: true,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.popAndPushNamed(context, HomeScreen.id);
-                        },
-                        child: Container(
-                          height: 55,
-                          width: 280,
-                          decoration: BoxDecoration(
-                              color: Colors.deepPurpleAccent,
-                              borderRadius: BorderRadius.circular(28)),
-                          child: Center(
-                              child: Text(
-                                'Login',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              )),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, ForgetPassword.id);
-                      },
-                      child: Text(
-                        'Forget Password ?',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 19),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Form(
+                      child: Column(
                         children: [
-                          Text(
-                            "Don't have an account ?",
-                            style: TextStyle(
-                                color: Colors.grey[800],
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
+                          CustomTextFormFiled(
+                            name: 'Username',
+                            hint: 'Enter Your Username',
+                            secure: false,
+                            icon: FontAwesomeIcons.user,
+                            eyeView: false,
+                          ),
+                          CustomTextFormFiled(
+                            name: 'Password',
+                            hint: 'Enter Your Password',
+                            secure: true,
+                            icon: Icons.lock,
+                            eyeView: true,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.popAndPushNamed(context, HomeScreen.id);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  height: 52.h,
+                                  width: 280.w,
+                                  decoration: BoxDecoration(
+                                      color: Colors.deepPurpleAccent,
+                                      borderRadius: BorderRadius.circular(28)),
+                                  child: Center(
+                                      child: Text(
+                                        'Login',
+                                        style: GoogleFonts.aladin(
+                                            color: Colors.white,
+                                            fontSize: 40,
+                                            fontWeight: FontWeight.w800),
+                                      )),
+                                ),
+                              ),
+                            ),
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.pushNamed(context, SignUp.id);
+                              Navigator.pushNamed(context, ForgetPassword.id);
                             },
                             child: Text(
-                              "Sign Up",
+                              'Forget Password ?',
                               style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18),
+                                  fontWeight: FontWeight.w600, fontSize: 19),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Don't have an account ?",
+                                  style: TextStyle(
+                                      color: Colors.grey[800],
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, SignUp.id);
+                                  },
+                                  child: Text(
+                                    "Sign Up",
+                                    style: TextStyle(
+                                        color: Colors.grey[600],
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

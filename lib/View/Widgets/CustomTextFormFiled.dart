@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 class CustomTextFormFiled extends StatefulWidget {
   String? name;
   bool? secure;
@@ -20,7 +21,7 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
           Align(
             alignment: Alignment.topLeft,
             child: Text(widget.name!,style:
-            TextStyle(fontSize: 25,fontWeight: FontWeight.w600,color: Colors.black87),),
+            GoogleFonts.aladin(fontSize: 30,fontWeight: FontWeight.w200,color: Colors.black),),
           ),
 
           TextFormField(

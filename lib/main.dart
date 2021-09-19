@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sign/Model/ThemeProv.dart';
 import 'package:sign/View/Screens/Cart.dart';
@@ -10,6 +11,7 @@ import 'package:sign/View/Screens/ForgetPassword.dart';
 import 'package:sign/View/Screens/HomeScreen.dart';
 import 'package:sign/View/Screens/HomeView.dart';
 import 'package:sign/View/Screens/OnBoarding.dart';
+import 'package:sign/View/Screens/ProductScreen.dart';
 import 'package:sign/View/Screens/Settings.dart';
 import 'package:sign/View/Screens/SignInScreen.dart';
 import 'package:sign/View/Screens/SignUp.dart';
@@ -38,12 +40,12 @@ class _ShopifyState extends State<Shopify> {
                 : Brightness.light),
         debugShowCheckedModeBanner: false,
         home: AnimatedSplashScreen(
-          splash: 'images/Shopify-Symbol.png',
+          splash: Icon(FontAwesomeIcons.shopify,color: Colors.deepPurple,size: 140,),
           nextScreen: OnBoarding(),
-          splashIconSize: 150,
-          duration: 1500,
+          duration: 1200,
           curve: Curves.decelerate,
-          splashTransition: SplashTransition.sizeTransition,
+          splashTransition: SplashTransition.rotationTransition,
+
         ),
         routes: {
           OnBoarding.id: (context) => OnBoarding(),
@@ -56,6 +58,7 @@ class _ShopifyState extends State<Shopify> {
           Cart.id: (context) => Cart(),
           Settings.id: (context) => Settings(),
           CategoryScreen.id:(context)=>CategoryScreen(),
+          ProductScreen.id:(context)=>ProductScreen(),
         },
       ),
     );
