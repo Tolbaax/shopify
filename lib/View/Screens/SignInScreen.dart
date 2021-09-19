@@ -6,6 +6,7 @@ import 'package:sign/View/Screens/HomeScreen.dart';
 import 'package:sign/View/Screens/SignUp.dart';
 import 'package:sign/View/Widgets/CustomTextFormFiled.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
   static String id = 'SignInScreen';
@@ -25,14 +26,18 @@ class _SignInScreenState extends State<SignInScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10,top: 20),
-                    child: Icon(
-                      FontAwesomeIcons.shopify,
-                      size: 100,
-                      color: Colors.deepPurpleAccent,
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.deepPurple,
+                      highlightColor: Colors.teal,
+                      child: Icon(
+                        FontAwesomeIcons.shopify,
+                        size: 140,
+                        color: Colors.deepPurpleAccent,
+                      ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Form(
                       child: Column(
                         children: [
@@ -59,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  height: 52.h,
+                                  height: 50.h,
                                   width: 280.w,
                                   decoration: BoxDecoration(
                                       color: Colors.deepPurpleAccent,
@@ -104,12 +109,16 @@ class _SignInScreenState extends State<SignInScreen> {
                                   onTap: () {
                                     Navigator.pushNamed(context, SignUp.id);
                                   },
-                                  child: Text(
-                                    "Sign Up",
-                                    style: TextStyle(
-                                        color: Colors.grey[600],
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18),
+                                  child: Shimmer.fromColors(
+                                    baseColor: Colors.grey,
+                                    highlightColor: Colors.redAccent,
+                                    child: Text(
+                                      "Sign Up",
+                                      style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 18),
+                                    ),
                                   ),
                                 ),
                               ],

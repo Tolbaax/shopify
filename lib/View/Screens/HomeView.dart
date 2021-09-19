@@ -145,9 +145,9 @@ class _HomeViewState extends State<HomeView> {
                       pagination: new SwiperPagination(
                         alignment: Alignment.bottomCenter,
                         builder: new DotSwiperPaginationBuilder(
-                            color: Colors.red, activeColor: Color(0xff38547C)),
+                            color: Colors.white, activeColor: Color(0xffb927ff)),
                       ),
-                      control: new SwiperControl(color: Color(0xff38547C),
+                      control: new SwiperControl(color: Color(0xffa31efc),
                       ),
                       autoplay: true,
                       itemCount: imageList.length,
@@ -155,7 +155,7 @@ class _HomeViewState extends State<HomeView> {
                         return Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              fit: BoxFit.fill,
+                              fit: BoxFit.cover,
                               image: AssetImage(imageList[index])
                             ),
                           ),

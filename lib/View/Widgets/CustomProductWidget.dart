@@ -1,11 +1,14 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:sign/Model/FavoriteProv.dart';
 import 'package:sign/Model/Product.dart';
 class ProductWidget extends StatefulWidget {
   Product? product;
-  ProductWidget({this.product});
-
+  ProductWidget({this.product,});
   @override
   _ProductWidgetState createState() => _ProductWidgetState();
 }
@@ -17,11 +20,23 @@ class _ProductWidgetState extends State<ProductWidget> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          Container(
-            width: 0.5.sw,
-            height: 245,
-            child: Image(image: AssetImage(widget.product!.imagePath!),
-              fit: BoxFit.fill,
+          Badge(
+            position: BadgePosition.topEnd(top: 1,end: 2),
+            badgeContent: InkWell(
+                onTap: ()
+                {
+                  Provider.of<FavoriteProv>(context,listen: false).addLike(widget.product);
+                },
+                child: Icon(FontAwesomeIcons.heart,size: 22,color: Colors.red,)),
+            badgeColor: Colors.white,
+            borderSide: BorderSide.none,
+            child: Container(
+              width: 0.5.sw,
+              height: 245,
+              child: Image(image: AssetImage(widget.product!.imagePath!),
+                fit: BoxFit.cover,
+              ),
+
             ),
           ),
           Padding(

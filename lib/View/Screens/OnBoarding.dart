@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sign/View/Screens/SignInScreen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shimmer/shimmer.dart';
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
   static String id='onBoarding';
@@ -20,7 +21,10 @@ class _OnBoardingState extends State<OnBoarding> {
               padding: const EdgeInsets.all(35.0),
               child: Column(
                 children: [
-                  Icon(FontAwesomeIcons.shopify,color: Colors.deepPurpleAccent,size: 130,),
+                  Shimmer.fromColors(
+                    baseColor: Colors.deepPurple,
+                      highlightColor: Colors.transparent,
+                      child: Icon(FontAwesomeIcons.shopify,color: Colors.deepPurpleAccent,size: 130,)),
                   SizedBox(
                     height: 25,
                   ),

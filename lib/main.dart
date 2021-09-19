@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:sign/Model/CartProvider.dart';
+import 'package:sign/Model/FavoriteProv.dart';
 import 'package:sign/Model/ThemeProv.dart';
 import 'package:sign/View/Screens/Cart.dart';
 import 'package:sign/View/Screens/CategoryScreen.dart';
@@ -19,6 +21,8 @@ import 'package:sign/View/Screens/SignUp.dart';
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => ThemeProv()),
+    ChangeNotifierProvider(create: (context)=> CartProv()),
+    ChangeNotifierProvider(create: (context)=> FavoriteProv()),
   ], child: Shopify()));
 }
 

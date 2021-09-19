@@ -3,7 +3,7 @@ class Product {
   String? style;
   String? price;
   String? imagePath;
-  String? quantity;
+  int? quantity=0;
   String? description;
   Product({this.style,this.name,this.imagePath,this.price,this.description,this.quantity});
 }
