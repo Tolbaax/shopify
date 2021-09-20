@@ -28,7 +28,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     padding: const EdgeInsets.only(bottom: 10,top: 20),
                     child: Shimmer.fromColors(
                       baseColor: Colors.deepPurple,
-                      highlightColor: Colors.teal,
+                      highlightColor: Colors.transparent,
                       child: Icon(
                         FontAwesomeIcons.shopify,
                         size: 140,
@@ -64,18 +64,18 @@ class _SignInScreenState extends State<SignInScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 15,bottom: 3,),
                                 child: Container(
-                                  height: 33.h,
+                                  height: 37.h,
                                   width: 200.w,
                                   decoration: BoxDecoration(
                                       color: Colors.deepPurpleAccent,
                                       borderRadius: BorderRadius.circular(30)),
                                   child: Center(
                                       child: Text(
-                                        'Login',
-                                        style: GoogleFonts.delius(
+                                        'Sign In',
+                                        style: GoogleFonts.share(
                                             color: Colors.white,
                                             fontSize: 25.h,
-                                            fontWeight: FontWeight.w600),
+                                            fontWeight: FontWeight.w500),
                                       )),
                                 ),
                               ),
@@ -122,6 +122,46 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                 ),
                               ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 22,),
+                            child: Container(
+                              height: 40.h,width: 260.w,
+                              decoration: BoxDecoration(
+                                  color:Colors.blueAccent[400],
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 25,right: 10),
+                                    child: Icon(FontAwesomeIcons.facebook,color: Colors.white,size:30,),
+                                  ),
+                                  Text('LOGIN WITH FACEBOOK',style:
+                                  TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w700),),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20,),
+                            child: Container(
+                              height: 40.h,width: 260.w,
+                              decoration: BoxDecoration(
+                                color:Colors.grey[300],
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 25,right: 10),
+                                    child: Icon(FontAwesomeIcons.google,color: Colors.red,size:30,),
+                                  ),
+                                  Text('SIGN IN WITH GMAIL',style:
+                                  TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),),
+                                ],
+                              ),
                             ),
                           ),
                         ],

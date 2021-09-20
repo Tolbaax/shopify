@@ -21,7 +21,9 @@ List<CategoryModel>category=[
   CategoryModel(categoryNames: 'Jackets',categoryImageUrl:'images/jacket.jpg',),
   CategoryModel(categoryNames: 'Bags',categoryImageUrl:'images/bags.jpg',),
 ];
+
 List<String>imageList=['images/fashon.jpg', 'images/07.jpg', 'images/fashon1.jpg', 'images/fashon2.jpg',];
+
 List<Product>products=[
   Product(name: 'Oxford',style: 'casual',price: '240 LE',imagePath: 'images/shirt2.jpeg'),
   Product(name: 'Classic',style: 'button-down',price: '170 LE',imagePath: 'images/shirt1.jpg'),
@@ -30,6 +32,11 @@ List<Product>products=[
   Product(name: 'Bags',style: 'black bag',price: '170 LE',imagePath: 'images/bags.jpg'),
   Product(name: 'watch',style: 'Luxury',price: '170 LE',imagePath: 'images/whach3.jpg'),
   Product(name: 'Shoes',style: 'Sneakers',price: '220 LE',imagePath: 'images/shoes.jpg'),
+];
+List<Product>hotPrice=[
+  Product(name: 'T Shirt',style: 'Casual',price: '200 LE',imagePath: 'images/hotprice2.jpg'),
+  Product(name: 'T Shirt',style: 'Classic',price: '150 LE',imagePath: 'images/hotprice1.webp'),
+  Product(name: 'T Shirt',style: 'Cotton',price: '300 LE',imagePath: 'images/hotprice3.webp'),
 ];
 class _HomeViewState extends State<HomeView> {
   @override
@@ -111,7 +118,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                       Container(
-                        height: 340.h,
+                        height: 300.h,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
@@ -140,7 +147,7 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   Container(
-                    height: 250.h,color: Colors.red,
+                    height: 250.h,
                     child: Swiper(
                       pagination: new SwiperPagination(
                         alignment: Alignment.bottomCenter,
@@ -162,6 +169,50 @@ class _HomeViewState extends State<HomeView> {
                         );
                       },
                     ),
+                  ),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.price_check),
+                            Text(' Hot Price',style: TextStyle(fontWeight: FontWeight.w600,fontSize:18,color: Colors.teal),),
+                            Spacer(),
+                            Text('See All',style: TextStyle(fontWeight: FontWeight.w800),),
+                            Icon(Icons.arrow_forward_ios_rounded,size: 15,),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 300.h,width:double.infinity.sw,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: hotPrice.length,
+                            itemBuilder: (context,index){
+                              return InkWell(
+                                  onTap: ()
+                                  {
+                                    Navigator.push(context,
+                                        PageRouteBuilder(
+                                            transitionDuration: Duration(seconds: 1),
+                                            transitionsBuilder: (context,animation,animationTime,child){
+                                              animation=CurvedAnimation(parent: animation, curve: Curves.linearToEaseOut);
+                                              return ScaleTransition(
+                                                alignment: Alignment.center,
+                                                scale: animation,
+                                                child: child,
+                                              );
+                                            },
+                                            pageBuilder: (context,animation,animationTime){
+                                              return ProductScreen(product: hotPrice[index],);
+                                            }));
+                                  },
+                                  child: ProductWidget(product: hotPrice[index],)
+                              );
+                            }),
+                      ),
+                    ],
                   ),
                 ],
               ),

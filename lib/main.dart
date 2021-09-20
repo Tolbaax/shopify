@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sign/Model/CartProvider.dart';
 import 'package:sign/Model/FavoriteProv.dart';
+import 'package:sign/Model/Quantity.dart';
 import 'package:sign/Model/ThemeProv.dart';
 import 'package:sign/View/Screens/Cart.dart';
 import 'package:sign/View/Screens/CategoryScreen.dart';
@@ -23,6 +24,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => ThemeProv()),
     ChangeNotifierProvider(create: (context)=> CartProv()),
     ChangeNotifierProvider(create: (context)=> FavoriteProv()),
+    ChangeNotifierProvider(create: (context)=> Quantity()),
   ], child: Shopify()));
 }
 
@@ -46,8 +48,8 @@ class _ShopifyState extends State<Shopify> {
         home: AnimatedSplashScreen(
           splash: Icon(FontAwesomeIcons.shopify,color: Colors.deepPurple,size: 140,),
           nextScreen: OnBoarding(),
-          duration: 1200,
-          curve: Curves.decelerate,
+          duration: 900,
+          curve: Curves.easeIn,
           splashTransition: SplashTransition.rotationTransition,
 
         ),

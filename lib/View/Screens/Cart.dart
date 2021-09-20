@@ -33,6 +33,7 @@ class _CartState extends State<Cart> {
                 children: [
                   Text(Provider.of<CartProv>(context).cartProducts[index].name!,style:
                   TextStyle(fontWeight: FontWeight.w800,fontSize: 20),),
+
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(Provider.of<CartProv>(context).cartProducts[index].price!,style:
@@ -54,8 +55,7 @@ class _CartState extends State<Cart> {
                     child: Icon(Icons.remove_circle,color: Colors.red,size: 30,)),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('Quantity'),
-                ),
+                  child: Text(Provider.of<CartProv>(context,).cartProducts[index].quantity.toString())),
               ],
             ),
 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sign/Model/CartProvider.dart';
 import 'package:sign/Model/FavoriteProv.dart';
 import 'package:sign/Model/Product.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-class ProductScreen extends StatefulWidget {
+import 'package:sign/Model/Quantity.dart';
+class ProductScreen extends  StatefulWidget {
  static String id='ProductScreen';
  Product? product;
  ProductScreen({this.product});
@@ -15,8 +15,10 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+  bool like=false;
  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         child: Column(
@@ -33,14 +35,17 @@ class _ProductScreenState extends State<ProductScreen> {
                   child: Row(
                     children: [
                       Text(widget.product!.name!,style:
-                      GoogleFonts.share(fontSize: 35,fontWeight: FontWeight.w600),),
+                      GoogleFonts.share(fontSize: 35,fontWeight: FontWeight.w500),),
                       Spacer(),
                       InkWell(
                           onTap: ()
                           {
-                            Provider.of<FavoriteProv>(context,listen: false).addLike(widget.product);
+                            setState(() {
+                              like=!like;
+                              Provider.of<FavoriteProv>(context,listen: false).addLike(widget.product);
+                            });
                           },
-                          child: Icon(FontAwesomeIcons.heart)),
+                          child: Icon(Icons.favorite_sharp,color: changeColor(like),size: 31.sp,)),
                     ],
                   ),
                 ),
@@ -49,20 +54,37 @@ class _ProductScreenState extends State<ProductScreen> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15,top: 15),
                     child: Text(widget.product!.style!,style:
-                    GoogleFonts.delius(color: Colors.grey,fontSize: 20,fontWeight: FontWeight.w600),),
+                    GoogleFonts.delius(color: Colors.grey,fontSize: 20,fontWeight: FontWeight.w500),),
                   ),),
                 Padding(
                   padding: const EdgeInsets.only(top: 40),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.add_circle,size: 35,color: Colors.teal,),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Text('0',style: TextStyle(fontSize: 20),),
-                      ),
-                      Icon(Icons.remove_circle,size: 35,color: Colors.teal,),
-                    ],
+                  child: Consumer<Quantity>(
+
+                    builder:(context,child,data)=>
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                            onTap: ()
+                            {
+                             Provider.of<Quantity>(context,listen: false).addQ();
+                            },
+                            child: Icon(Icons.add_circle,size: 35,)),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child:
+                                Text(Provider.of<Quantity>(context).q.toString(),style:
+                            TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
+                          ),
+
+                        InkWell(
+                            onTap: ()
+                            {
+                              Provider.of<Quantity>(context,listen: false).subQ();
+                            },
+                            child: Icon(Icons.remove_circle,size: 35,)),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -74,6 +96,9 @@ class _ProductScreenState extends State<ProductScreen> {
                       Spacer(),
                       InkWell(
                         onTap: (){
+                          setState(() {
+                            widget.product!.quantity=Provider.of<Quantity>(context,listen: false).q;
+                          });
                           Provider.of<CartProv>(context,listen: false).addCart(widget.product);
                           ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Add To Cart'),
@@ -100,4 +125,15 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
     );
   }
+}
+Color? changeColor(like)
+{
+  if(like==true)
+    {
+      return Colors.red;
+    }
+  else
+    {
+      return Colors.grey;
+    }
 }

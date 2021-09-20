@@ -18,14 +18,14 @@ class _SettingsState extends State<Settings> {
        ),
         Padding(
           padding: const EdgeInsets.only(top: 10,bottom: 5),
-          child: Text('Mohamed Tolba',style: GoogleFonts.share(fontSize: 28,fontWeight: FontWeight.bold,),),
+          child: Text('Mohamed Tolba',style: GoogleFonts.share(fontSize: 30,fontWeight: FontWeight.w500,),),
         ),
-        Text('Tolbaax@gmail.com',style: GoogleFonts.share(color: Colors.grey[800],fontSize: 19,fontWeight: FontWeight.bold,),),
+        Text('Tolbaax@gmail.com',style: GoogleFonts.share(fontSize: 18,fontWeight: FontWeight.w300,),),
         Padding(
           padding: const EdgeInsets.only(top: 18,left: 15,right: 12,bottom: 5),
           child: Row(
             children: [
-              Text('Account Information',style: GoogleFonts.share(fontWeight: FontWeight.w600,fontSize: 22),),
+              Text('Account Information',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
               Spacer(),
               Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
             ],
@@ -36,7 +36,7 @@ class _SettingsState extends State<Settings> {
           padding: const EdgeInsets.only(top: 8,left: 15,right: 12,bottom: 5),
           child: Row(
             children: [
-              Text('Sales Channels',style: GoogleFonts.share(fontWeight: FontWeight.w600,fontSize: 22),),
+              Text('Sales Channels',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
               Spacer(),
               Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
             ],
@@ -47,7 +47,7 @@ class _SettingsState extends State<Settings> {
           padding: const EdgeInsets.only(top: 8,left: 15,right: 12,bottom: 5),
           child: Row(
             children: [
-              Text('Notifications ',style: GoogleFonts.share(fontWeight: FontWeight.w600,fontSize: 22),),
+              Text('Notifications ',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
               Spacer(),
               Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
             ],
@@ -58,7 +58,7 @@ class _SettingsState extends State<Settings> {
           padding: const EdgeInsets.only(top: 8,left: 15,right: 12,bottom: 5),
           child: Row(
             children: [
-              Text('Language',style: GoogleFonts.share(fontWeight: FontWeight.w600,fontSize: 22),),
+              Text('Language',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
               Spacer(),
               Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
             ],
@@ -69,7 +69,7 @@ class _SettingsState extends State<Settings> {
           padding: const EdgeInsets.only(top: 8,left: 15,right: 12,bottom: 5),
           child: Row(
             children: [
-              Text('Location',style: GoogleFonts.share(fontWeight: FontWeight.w600,fontSize: 22),),
+              Text('Location',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
               Spacer(),
               Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
             ],
@@ -80,7 +80,7 @@ class _SettingsState extends State<Settings> {
           padding: const EdgeInsets.only(top: 8,left: 15,right: 12),
           child: Row(
             children: [
-              Text('Log Out',style: GoogleFonts.share(fontWeight: FontWeight.w600,fontSize: 22),),
+              Text('Log Out',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
               Spacer(),
               Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
             ],

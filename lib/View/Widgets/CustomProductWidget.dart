@@ -1,7 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sign/Model/FavoriteProv.dart';
@@ -14,6 +13,7 @@ class ProductWidget extends StatefulWidget {
 }
 
 class _ProductWidgetState extends State<ProductWidget> {
+  bool like=false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,10 +25,14 @@ class _ProductWidgetState extends State<ProductWidget> {
             badgeContent: InkWell(
                 onTap: ()
                 {
-                  Provider.of<FavoriteProv>(context,listen: false).addLike(widget.product);
+                  setState(() {
+                    Provider.of<FavoriteProv>(context,listen: false).addLike(widget.product);
+                    like=!like;
+                  });
                 },
-                child: Icon(FontAwesomeIcons.heart,size: 22,color: Colors.red,)),
-            badgeColor: Colors.white,
+                child: Icon(Icons.favorite_sharp,size: 25,color: changeColor(like))),
+            badgeColor: Colors.transparent,
+            elevation: 0,
             borderSide: BorderSide.none,
             child: Container(
               width: 0.5.sw,
@@ -57,5 +61,16 @@ class _ProductWidgetState extends State<ProductWidget> {
         ],
       ),
     );
+  }
+}
+Color? changeColor(like)
+{
+  if(like==true)
+  {
+    return Colors.red;
+  }
+  else
+  {
+    return Colors.grey;
   }
 }
