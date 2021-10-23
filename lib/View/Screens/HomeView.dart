@@ -118,7 +118,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                       Container(
-                        height: 300.h,
+                        height: 340.h,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
@@ -185,7 +185,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                       Container(
-                        height: 300.h,width:double.infinity.sw,
+                        height: 340.h,width:double.infinity.sw,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: hotPrice.length,
