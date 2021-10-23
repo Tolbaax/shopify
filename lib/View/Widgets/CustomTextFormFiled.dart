@@ -6,7 +6,9 @@ class CustomTextFormFiled extends StatefulWidget {
   String? hint;
   IconData? icon;
   bool? eyeView;
-  CustomTextFormFiled({this.icon,this.hint,this.secure,this.name,this.eyeView});
+  var validator;
+  var onSaved;
+  CustomTextFormFiled({this.icon,this.hint,this.secure,this.name,this.eyeView,this.validator,this.onSaved});
 
   @override
   _CustomTextFormFiledState createState() => _CustomTextFormFiledState();
@@ -21,11 +23,13 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
           Align(
             alignment: Alignment.topLeft,
             child: Text(widget.name!,style:
-            GoogleFonts.share(fontSize: 28,fontWeight: FontWeight.w600,color: Colors.black),),
+            GoogleFonts.share(fontSize: 25,fontWeight: FontWeight.w500,color: Colors.black),),
           ),
 
           TextFormField(
             obscureText: widget.secure!,
+            onSaved: widget.onSaved,
+            validator: widget.validator,
             decoration: InputDecoration(
               prefixIcon: Icon(widget.icon,color: Colors.deepPurpleAccent,),
               suffixIcon:

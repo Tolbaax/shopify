@@ -32,6 +32,8 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   animated_splash_screen: ^1.1.0
   flutter_svg: ^0.22.0
+  firebase_auth:
+  firebase_core:
   shimmer:
   badges:
   font_awesome_flutter:

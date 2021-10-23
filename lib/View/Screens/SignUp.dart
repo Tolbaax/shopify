@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sign/Controller/auth.dart';
 import 'package:sign/View/Screens/SignInScreen.dart';
 import 'package:sign/View/Widgets/CustomTextFormFiled.dart';
 class SignUp extends StatelessWidget {
-  const SignUp({Key? key}) : super(key: key);
   static String id = 'SignUp';
+  GlobalKey<FormState>formKey=GlobalKey<FormState>();
+  String? email;
+  String? password;
+  Auth auth = Auth();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +15,8 @@ class SignUp extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(5.0),
-            child: Container(
+            child: Form(
+
               child: Column(
                 children: [
                   Padding(
@@ -26,23 +30,36 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   Form(
+                    key: formKey,
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
                         children: [
                           CustomTextFormFiled(
-                            hint: 'Enter Your Name',
-                            secure: false,
-                            eyeView: false,
-                            name: 'Full Name',
-                            icon: FontAwesomeIcons.user,
-                          ),
-                          CustomTextFormFiled(
-                            hint: 'Enter Your Email',
+                            hint: 'Enter Email',
                             secure: false,
                             eyeView: false,
                             name: 'Email',
                             icon: Icons.email,
+                            onSaved: (v)
+                            {
+                              email=v;
+                            },
+                            validator: (v)
+                            {
+                              if(v.toString().isEmpty)
+                                {
+                                  return 'Please Enter Email';
+                                }
+                            },
+                          ),
+                          CustomTextFormFiled(
+                            hint: 'Enter Name',
+                            secure: false,
+                            eyeView: false,
+                            name: 'Full Name',
+                            icon: Icons.person,
+
                           ),
                           CustomTextFormFiled(
                             hint: 'Enter Your Pass',
@@ -50,6 +67,16 @@ class SignUp extends StatelessWidget {
                             eyeView: false,
                             name: 'Password',
                             icon: Icons.lock,
+                            onSaved: (v){
+                              password = v;
+                            },
+                            validator: (v)
+                            {
+                              if(v.toString().isEmpty)
+                                {
+                                  return 'Please Enter Password';
+                                }
+                            },
                           ),
                           CustomTextFormFiled(
                             hint: 'Confirm Your Pass',
@@ -68,21 +95,37 @@ class SignUp extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(15.0),
-                          child: Container(
-                            height: 55,
-                            width: 300,
-                            decoration: BoxDecoration(
-                              color: Colors.deepPurpleAccent,
-                              borderRadius: BorderRadius.circular(28),
+                          child: InkWell(
+                            onTap: ()
+                            {
+                              if(formKey.currentState!.validate())
+                                {
+                                  formKey.currentState!.save();
+                                  try{
+                                    auth.signUp(email, password);
+                                  }
+                                  catch(e)
+                              {
+                                print(e);
+                              }
+                                }
+                            },
+                            child: Container(
+                              height: 55,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                color: Colors.deepPurpleAccent,
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              child: Center(
+                                  child: Text(
+                                    'Sign Up',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.w600),
+                                  )),
                             ),
-                            child: Center(
-                                child: Text(
-                                  'Sign Up',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.w600),
-                                )),
                           ),
                         ),
                         Row(

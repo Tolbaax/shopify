@@ -1,4 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,7 +20,10 @@ import 'package:sign/View/Screens/Settings.dart';
 import 'package:sign/View/Screens/SignInScreen.dart';
 import 'package:sign/View/Screens/SignUp.dart';
 
-void main() {
+void main()async
+{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => ThemeProv()),
     ChangeNotifierProvider(create: (context)=> CartProv()),
