@@ -42,7 +42,7 @@ class ForgetPassword extends StatelessWidget {
                       onTap: ()async{
                         if(forgetControl.text.isEmpty)
                           {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please Enter Email')));
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please Enter Email'),backgroundColor: Colors.blueAccent,));
                           }
                         else{
                           try{

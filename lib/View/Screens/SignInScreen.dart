@@ -48,7 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         children: [
                           CustomTextFormFiled(
                             name: 'Email',
-                            hint: 'Enter Your Email',
+                            hint: 'Enter Email',
                             secure: false,
                             icon: FontAwesomeIcons.user,
                             eyeView: false,
@@ -66,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                           CustomTextFormFiled(
                             name: 'Password',
-                            hint: 'Please Enter Your Password',
+                            hint: 'Enter Password',
                             secure: true,
                             icon: Icons.lock,
                             eyeView: true,
