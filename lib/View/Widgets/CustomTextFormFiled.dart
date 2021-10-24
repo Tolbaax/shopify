@@ -8,8 +8,8 @@ class CustomTextFormFiled extends StatefulWidget {
   bool? eyeView;
   var validator;
   var onSaved;
-  CustomTextFormFiled({this.icon,this.hint,this.secure,this.name,this.eyeView,this.validator,this.onSaved});
-
+  TextEditingController? controller;
+  CustomTextFormFiled({this.icon,this.hint,this.secure,this.name,this.eyeView,this.validator,this.onSaved,this.controller});
   @override
   _CustomTextFormFiledState createState() => _CustomTextFormFiledState();
 }
@@ -29,6 +29,7 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
           TextFormField(
             obscureText: widget.secure!,
             onSaved: widget.onSaved,
+            controller: widget.controller,
             validator: widget.validator,
             decoration: InputDecoration(
               prefixIcon: Icon(widget.icon,color: Colors.deepPurpleAccent,),
@@ -42,8 +43,7 @@ class _CustomTextFormFiledState extends State<CustomTextFormFiled> {
                     });
                   },
                   child: Icon(Icons.visibility_off,color: Colors.deepPurpleAccent,))
-                  :null
-              ,
+                  :null,
               hintText: widget.hint,
             ),
           ),

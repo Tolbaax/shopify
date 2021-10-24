@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sign/Controller/auth.dart';
 import 'package:sign/View/Screens/ForgetPassword.dart';
 import 'package:sign/View/Screens/HomeScreen.dart';
 import 'package:sign/View/Screens/SignUp.dart';
@@ -8,13 +9,16 @@ import 'package:sign/View/Widgets/CustomTextFormFiled.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
   static String id = 'SignInScreen';
   @override
   _SignInScreenState createState() => _SignInScreenState();
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  GlobalKey<FormState>formKey=GlobalKey<FormState>();
+  String? email;
+  String? password;
+  Auth auth=Auth();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +35,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       highlightColor: Colors.transparent,
                       child: Icon(
                         FontAwesomeIcons.shopify,
-                        size: 140,
+                        size: 80,
                         color: Colors.deepPurpleAccent,
                       ),
                     ),
@@ -39,6 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Form(
+                      key: formKey,
                       child: Column(
                         children: [
                           CustomTextFormFiled(
@@ -47,22 +52,55 @@ class _SignInScreenState extends State<SignInScreen> {
                             secure: false,
                             icon: FontAwesomeIcons.user,
                             eyeView: false,
+                            onSaved: (v)
+                            {
+                              email=v;
+                            },
+                            validator: (v)
+                            {
+                              if(v.toString().isEmpty)
+                                {
+                                  return 'Enter Your Email';
+                                }
+                            },
                           ),
                           CustomTextFormFiled(
                             name: 'Password',
-                            hint: 'Enter Your Password',
+                            hint: 'Please Enter Your Password',
                             secure: true,
                             icon: Icons.lock,
                             eyeView: true,
+                            onSaved: (v)
+                            {
+                              password = v;
+                            },
+                            validator: (v)
+                            {
+                              if(v.toString().isEmpty)
+                                {
+                                  return 'Please Enter your Password';
+                                }
+                            },
                           ),
                           Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.popAndPushNamed(context, HomeScreen.id);
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 15,bottom: 3,),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 15,bottom: 3,),
+                              child: InkWell(
+                                onTap: ()async{
+                                  if(formKey.currentState!.validate())
+                                    {
+                                      formKey.currentState!.save();
+                                      try{
+                                       await auth.signIn(email, password);
+                                       Navigator.pushNamed(context, HomeScreen.id);
+                                      }
+                                      catch(v)
+                                  {
+                                    print(v);
+                                  }
+                                    }
+                                },
                                 child: Container(
                                   height: 37.h,
                                   width: 200.w,
@@ -88,7 +126,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             child: Text(
                               'Forget Password ?',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 16),
+                                  fontWeight: FontWeight.w600, fontSize: 16,color: Colors.blue),
                             ),
                           ),
                           SizedBox(

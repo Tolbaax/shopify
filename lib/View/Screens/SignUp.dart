@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sign/Controller/auth.dart';
+import 'package:sign/View/Screens/HomeScreen.dart';
 import 'package:sign/View/Screens/SignInScreen.dart';
 import 'package:sign/View/Widgets/CustomTextFormFiled.dart';
 class SignUp extends StatelessWidget {
@@ -59,7 +60,13 @@ class SignUp extends StatelessWidget {
                             eyeView: false,
                             name: 'Full Name',
                             icon: Icons.person,
-
+                            validator: (v)
+                            {
+                              if(v.toString().isEmpty)
+                                {
+                                  return 'Please Enter Your Name';
+                                }
+                            },
                           ),
                           CustomTextFormFiled(
                             hint: 'Enter Your Pass',
@@ -84,6 +91,13 @@ class SignUp extends StatelessWidget {
                             eyeView: false,
                             name: 'Confirm Password',
                             icon: Icons.lock,
+                            validator: (v)
+                            {
+                              if(v.toString().isEmpty)
+                                {
+                                  return 'Please Confirm Password';
+                                }
+                            },
                           ),
                         ],
                       ),
@@ -96,13 +110,14 @@ class SignUp extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: InkWell(
-                            onTap: ()
+                            onTap: ()async
                             {
                               if(formKey.currentState!.validate())
                                 {
                                   formKey.currentState!.save();
                                   try{
-                                    auth.signUp(email, password);
+                                   await auth.signUp(email, password);
+                                   Navigator.popAndPushNamed(context, HomeScreen.id);
                                   }
                                   catch(e)
                               {
@@ -110,24 +125,24 @@ class SignUp extends StatelessWidget {
                               }
                                 }
                             },
-                            child: Container(
-                              height: 55,
-                              width: 300,
-                              decoration: BoxDecoration(
-                                color: Colors.deepPurpleAccent,
-                                borderRadius: BorderRadius.circular(28),
+                              child: Container(
+                                height: 55,
+                                width: 300,
+                                decoration: BoxDecoration(
+                                  color: Colors.deepPurpleAccent,
+                                  borderRadius: BorderRadius.circular(28),
+                                ),
+                                child: Center(
+                                    child: Text(
+                                      'Sign Up',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 26,
+                                          fontWeight: FontWeight.w600),
+                                    )),
                               ),
-                              child: Center(
-                                  child: Text(
-                                    'Sign Up',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 26,
-                                        fontWeight: FontWeight.w600),
-                                  )),
                             ),
                           ),
-                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
