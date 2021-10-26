@@ -22,17 +22,16 @@ class ForgetPassword extends StatelessWidget {
                     child: Icon(
                       FontAwesomeIcons.shopify,
                       size: 110,
-                      color: Colors.deepPurpleAccent,
+                      color: Colors.deepPurple,
                     ),
                   ),
                   Text('Reset Password',style:
                   TextStyle(fontSize: 30,color: Colors.deepPurple,fontWeight: FontWeight.w600),),
-                  SizedBox(height: 100,),
+                  SizedBox(height: 75,),
                   CustomTextFormFiled(
-                    hint: 'Enter Email',
+                    hint: 'Email',
                     secure: false,
                     eyeView: false,
-                    name: 'Email',
                     icon: Icons.email,
                     controller: forgetControl,
                   ),
@@ -55,13 +54,13 @@ class ForgetPassword extends StatelessWidget {
                         }
                       },
                       child: Container(
-                        height: 50,
+                        height: 45,width: 250,
                         decoration: BoxDecoration(
-                            color: Colors.deepPurpleAccent,
-                            borderRadius: BorderRadius.circular(28)
+                            color: Colors.deepPurple,
+                            borderRadius: BorderRadius.circular(30)
                         ),
                         child: Center(child: Text('Reset Password',style:
-                        TextStyle(color: Colors.white,fontSize: 26,fontWeight: FontWeight.w600),)),
+                        TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.w600),)),
                       ),
                     ),
                   ),],
