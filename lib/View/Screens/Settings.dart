@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sign/View/Screens/SignInScreen.dart';
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
   static String id='Settings';
@@ -78,12 +79,18 @@ class _SettingsState extends State<Settings> {
         Divider(color: Colors.grey,),
         Padding(
           padding: const EdgeInsets.only(top: 8,left: 15,right: 12),
-          child: Row(
-            children: [
-              Text('Log Out',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
-              Spacer(),
-              Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
-            ],
+          child: InkWell(
+            onTap: ()
+            {
+              Navigator.popAndPushNamed(context, SignInScreen.id);
+            },
+            child: Row(
+              children: [
+                Text('Log Out',style: GoogleFonts.share(fontWeight: FontWeight.w500,fontSize: 22),),
+                Spacer(),
+                Icon(Icons.arrow_forward_ios_rounded,color: Colors.teal[800],),
+              ],
+            ),
           ),
         ),
     ]

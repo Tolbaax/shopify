@@ -114,7 +114,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                         formKey.currentState!.save();
                                         try{
                                          await auth.signIn(email, password);
-                                         Navigator.pushNamed(context, HomeScreen.id);
+                                         Navigator.popAndPushNamed(context, HomeScreen.id);
                                         }
                                         catch(v)
                                     {
@@ -156,7 +156,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.pushNamed(context, SignUp.id);
+                                      Navigator.popAndPushNamed(context, SignUp.id);
                                     },
                                     child: Text(
                                       "Sign Up",
