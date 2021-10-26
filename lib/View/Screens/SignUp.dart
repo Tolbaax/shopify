@@ -18,15 +18,16 @@ class SignUp extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.only(top: 35),
                   child: Text(
                     'Sign Up',
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 45,
                         fontWeight: FontWeight.w600,
-                        color: Colors.deepPurpleAccent),
+                        color: Colors.deepPurple),
                   ),
                 ),
+                SizedBox(height: 40,),
                 Form(
                   key: formKey,
                   child: Padding(
