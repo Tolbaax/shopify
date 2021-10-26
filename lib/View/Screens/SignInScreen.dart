@@ -156,7 +156,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.popAndPushNamed(context, SignUp.id);
+                                      Navigator.pushNamed(context, SignUp.id);
                                     },
                                     child: Text(
                                       "Sign Up",
