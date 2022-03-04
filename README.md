@@ -1,4 +1,4 @@
-# shopify
+# Shopify App UI
 
 A new Flutter project.
 
